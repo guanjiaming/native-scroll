@@ -1,19 +1,15 @@
 import NativeScroll from './native-scroll.vue'
-import { version } from '../../package.json'
 
 // 如果vue是全局变量,使用自动全局安装。
 if (typeof window !== 'undefined' && window.Vue) {
-  Vue.component('scroll-view', NativeScroll)
+  Vue.component('native-scroll', NativeScroll)
 }
 
 export default {
   install (Vue) {
-    Vue.component('scroll-view', NativeScroll)
+    Vue.component('native-scroll', NativeScroll)
   },
   version
 }
 
-export {
-  NativeScroll,
-  version
-}
+export NativeScroll

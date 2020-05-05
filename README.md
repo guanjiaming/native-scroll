@@ -1,43 +1,43 @@
-# native-scroll
+# vue-scroll-view-mobile
 
-> 一个基于vue2.0.js移动端的原生scroll组件（pc端也能用，会很丑陋）
+> 一个基于vue2.0.js移动端的原生scroll组件, 由原来的native-scroll更名为vue-scroll-view-mobile，添加事件节流，时间间隔600ms,提升性能；优化了缓动动画效果
 
 ## 安装
 
 npm 安装
 ``` 
 
-  npm install native-scroll --save
+  npm install vue-scroll-view-mobile --save
 
 ```
 ## 注册组件
 
 全局注册
 
-```-- main.js
+* -- main.js
+```js
     
     import Vue from 'vue'
-    import NativeScroll from 'native-scroll'
-    Vue.use(NativeScroll)
+    import {ScrollView} from 'vue-scroll-view-mobile'
+    Vue.use(ScrollView)
 
 ```
-
-```-- Hello.vue
-   
+* -- Hello.vue
+```vue
    <template>
-     <div class="scroll-view" ref="scrollView">
-		<native-scroll>
-       		<!-- 你的内容 -->
-     	</native-scroll>
+     <div class="section" ref="scrollView">
+      <native-scroll>
+       <!-- 你的内容 -->
+      </native-scroll>
      </div>
    </template>
    <style lang="scss">
-   	.scroll-view {
-   		// 必须要有一个高度
-   		position: fixed;
-    	width: 100%;
-    	height: 500px;
-   	}
+    .section {
+      // 必须要有一个高度
+      position: fixed;
+      width: 100%;
+      height: 500px;
+    }
    </style>
 
 ```
@@ -50,15 +50,41 @@ npm 安装
 * 用法:
 
   ```vue
-  <native-scroll @scroll="onScroll">
-    <!-- 你的内容 -->
+  <!-- 商品详情页面  -->
+  <section class="section">
+   <native-scroll ref="myScroll" @scrolling="onScroll" @scroll-lower="nextPage">
+    <!-- 其他内容 -->
+    
+    <section class="detail" ref="detail">
+     <!-- 商品图文介绍  -->
+    </section>
    </native-scroll>
+  </section>
 
-   methods: {
-   	onScroll(pos) {
-   		console.log(pos)
-   	}
+  methods: {
+   onScroll(pos) {
+    // 未做节流处理
+    console.log(pos)
+   },
+   nextPage() {
+    // this.$axios....
+   },
+   // 返回顶部
+   goBack() {
+    this.$refs.myScroll.scrollTo(0)
    }
+   // 去到制定dom节点位置
+    goElement() {
+     this.$refs.myScroll.scrollToElement(this.$refs.detail)
+    }
+  }
+  <style lang="scss">
+    .section {
+      // 必须要有一个高度
+      width: 100%;
+      height: 500px;
+    }
+   </style>
   ```
 
 

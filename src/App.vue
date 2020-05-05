@@ -2,7 +2,7 @@
   <div id="app">
     <h1>{{ msg }}</h1>
     <div class="scroll_box">
-      <native-scroll
+      <scroll-view
         @scroll="onScroll"
       >
         <h2>Essential Links</h2>
@@ -19,7 +19,7 @@
           <li>vue-loader</li>
           <li>awesome-vue</li>
         </ul>
-      </native-scroll>
+      </scroll-view>
     </div>
   </div>
 </template>
@@ -34,7 +34,7 @@
     },
     method: {
       onScroll() {
-        
+
       }
     }
   }

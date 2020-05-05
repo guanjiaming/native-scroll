@@ -1,5 +1,5 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
   // entry: './src/main.js',
@@ -8,8 +8,8 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
     // filename: 'build.js'
-    filename: 'native-scroll.js',
-    library: 'native-scroll',
+    filename: 'vue-scroll-view.js',
+    library: 'vue-scroll-view',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
@@ -21,18 +21,20 @@ module.exports = {
           'vue-style-loader',
           'css-loader'
         ],
-      },      {
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          loaders: {
-          }
+          loaders: {}
           // other vue-loader options go here
-        }
+        },
+        exclude: /node_modules/
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        include: path.join(__dirname, 'src'),
         exclude: /node_modules/
       },
       {

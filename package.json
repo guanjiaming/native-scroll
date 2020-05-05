@@ -1,20 +1,20 @@
 {
-  "name": "native-scroll",
-  "description": "scroll component for Vue2.0",
-  "version": "0.0.2",
+  "name": "vue-scroll-view-mobile",
+  "description": "scroll-view component for mobile",
+  "version": "1.0.2",
   "author": "guanjiaming",
   "license": "MIT",
-  "main": "dist/native-scroll.js",
+  "main": "dist/vue-scroll-view.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/guanjiaming/native-scroll"
   },
   "keywords": [
     "vue",
-    "scroll",
-    "native scroll",
-    "native-scroll",
-    "native_scroll"
+    "scrollView",
+    "scroll view",
+    "vue-scroll-view",
+    "scroll-view"
   ],
   "private": false,
   "scripts": {
